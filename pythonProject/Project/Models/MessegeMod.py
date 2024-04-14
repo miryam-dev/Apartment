@@ -1,7 +1,12 @@
-class MessegeModel:
-    def __init__(self, sender, messege_body, receiver_mail, new_messege, Messegeid):
-        self.sender_mail = sender
-        self.messege_body = messege_body
-        self.getter_mail = receiver_mail  # Renamed for clarity
-        self.new_messege = new_messege
-        self.Messegeid = Messegeid
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+from ..app import db
+
+class Messege(db.Model):
+    __tablename__ = 'messages'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_mail = Column(Integer, ForeignKey('users.id'))
+    content = Column(String(255), nullable=False)
+
+    user = relationship("User", back_populates="messages")

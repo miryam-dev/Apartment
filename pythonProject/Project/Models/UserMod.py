@@ -1,13 +1,15 @@
-from typing import List  # For type hinting (optional)
-from Project.Models.MessegeMod import MessegeModel
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+from pythonProject.Project.db import db
+class User(db.Model):
+    __tablename__ = 'USERS'
 
+    firstName = db.Column(db.String(50), nullable=False)
+    lastName = db.Column(db.String(50), nullable=False)
+    mail = db.Column(db.String(100), unique=True, nullable=False,primary_key=True)
+    phon = db.Column(db.String(10), nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+    passwordResetToken = db.Column(db.String(100), nullable=True)  # Adding password reset token field
+    # messages = relationship("Messege", back_populates="user")
 
-class UserModel:
-    def __init__(self, first_name: str, last_name: str, mail: str, phon: str, password: str):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.mail = mail
-        self.phon = phon
-        self.password = password
-        self.messages: List[MessegeModel] = []  # List of MessegeModel objects
 

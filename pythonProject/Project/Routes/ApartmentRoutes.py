@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 import json
-from Project.Action.ApartmentAct import ApartmentService
-from Project.Models.ApartmentMod import ApartmentModel, ApartmentType
+from pythonProject.Project.Action.ApartmentAct import ApartmentService
+from pythonProject.Project.Models.ApartmentMod import ApartmentModel, ApartmentType
 
 ApartmentRout = Blueprint('routesApartment', __name__)
 

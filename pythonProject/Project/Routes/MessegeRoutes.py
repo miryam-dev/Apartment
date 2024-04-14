@@ -1,8 +1,8 @@
 
 from flask import Blueprint, request, jsonify
 import json
-from Project.Action.MessegeAct import MessegeService
-from Project.Models.MessegeMod import MessegeModel
+from pythonProject.Project.Action.MessegeAct import MessegeService
+from pythonProject.Project.Models.MessegeMod import Messege
 
 MessegeRout = Blueprint('routMessege', __name__)
 
